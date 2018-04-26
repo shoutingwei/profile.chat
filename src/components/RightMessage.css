@@ -1,0 +1,14 @@
+.right-message-container{
+	display: flex;
+	justify-content: flex-end;
+	margin: 10px;
+}
+
+.right-message{
+	color: #666;
+	width: fit-content;
+	padding: 10px;
+	border-radius: 20px 20px 0px 20px;
+	background-color: #3fd1e1;
+	color: white;
+}

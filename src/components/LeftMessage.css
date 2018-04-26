@@ -1,0 +1,13 @@
+.left-message-container{
+	display: flex;
+	justify-content: flex-start;
+	margin: 10px;
+}
+
+.left-message{
+	color: #666;
+	width: fit-content;
+	padding: 10px;
+	border-radius: 0 20px 20px 20px;
+	background-color: white;
+}
