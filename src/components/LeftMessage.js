@@ -6,7 +6,7 @@ class LeftMessage extends React.Component{
 	render (){
 		return (<div className="left-message-container">
 					<div className="left-message">
-						Nice to meet you!
+						{this.props.message}
 					</div>
 				</div>);
 		};

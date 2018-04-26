@@ -8,7 +8,7 @@
 	top:600px;
 	opacity: 0;
 	border-radius: 0 0 20px 20px;
-	transition: top 0.3s, opacity 0.3s;
+	transition: top 0.3s, opacity 0s;
 }
 
 .chat-category-active{

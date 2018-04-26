@@ -17,7 +17,8 @@ class Mobile extends React.Component{
 		this.state={
 			isPopCategory: false,
 			isPopHint: false,
-			hintKey: null
+			hintKey: null,
+			chats: []
 		}
 	}
 
@@ -34,9 +35,14 @@ class Mobile extends React.Component{
 	}
 
 	handleHintSelected(event){
-		console.log(event.target.value);
+		let chats = this.state.chats;
+		chats.push({
+			from: "right",
+			message: event.target.innerText
+		});
 		this.setState({
-			isPopHint: false
+			isPopHint: false,
+			chats: chats
 		});
 	}
 
@@ -56,15 +62,23 @@ class Mobile extends React.Component{
 	}
 
 	render(){
+		let tempChats = this.state.chats.map((item)=>{
+			if(item["from"] === "left"){
+				return <LeftMessage  message={item["message"]}/>
+			}
+			return <RightMessage  message={item["message"]}/>
+		});
+
 		return (<div className="mobile">
 			<div className="mobile-header"><span>Talking to Shouting</span></div>
 			<div className="mobile-content">
-				<LeftMessage/>
-				<RightMessage/>
+				<LeftMessage message="Nice to meet you!"/>
+				<RightMessage message="Nice to meet you, too!"/>
+				{tempChats}
 			</div>
 			<div className="mobile-footer" onClick={this.handleClick}><span>Say something...</span></div>
 			<ChatCategory isActive={this.state.isPopCategory} onClickCategoryTag={this.handleCategoryTag} onCloseChatCategory={this.handleChatCategoryClose}/>
-			<HintPop isActive={this.state.isPopHint} onSelectHint={this.handleHintSelected} hintKey={this.state.hintKey} onCloseHintPop={this.handleHintPopClose}/>
+			<HintPop isActive={this.state.isPopHint} onSelectHint={this.handleHintSelected} hintKey={this.state.hintKey} onCloseHintPop={this.handleHintPopClose} onClickHint={this.handleHintSelected}/>
 			</div>);
 	} 
 }
